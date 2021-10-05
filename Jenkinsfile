@@ -58,13 +58,13 @@ pipeline {
             steps {
                 sshagent(['ajesh2217']) {
                                       
-                    sh "scp -o StrictHostKeyChecking=no deployment-webapp.yml service-webapp-np.yml ubuntu@3.112.19.155:/home/ubuntu/"
+                    sh "scp -o StrictHostKeyChecking=no deployment-webapp.yml service-webapp-np.yml ubuntu@54.249.131.49:/home/ubuntu/"
                     script{
                         try{
-                            sh "ssh ubuntu@3.112.19.155 sudo kubectl apply -f ."
+                            sh "ssh ubuntu@54.249.131.49 sudo kubectl apply -f ."
                         }
                         catch(error){
-                            sh "ssh ubuntu@3.112.19.155 sudo kubectl create -f ."
+                            sh "ssh ubuntu@54.249.131.49 sudo kubectl create -f ."
                         }
                     }
                 }
